@@ -1,12 +1,14 @@
-# 🏨 Booking Intelligence Dashboard | Power BI Project
+# 🏨 Booking Intelligence Dashboard | AI + Power BI Project
 
 ## 📌 Project Overview
 This project analyzes hotel booking data to understand **customer behavior, cancellation trends, and pricing strategies** in the travel & hospitality domain.
 
-The objective is to provide **data-driven insights** to improve:
-- Revenue optimization (ADR & RevPAR)
-- Customer retention
-- Cancellation reduction
+It combines **Data Analytics + Visualization + Machine Learning + Web Deployment** to build a complete business solution.
+
+---
+
+## 🌐 Live Application
+👉 https://hotel-booking-ai-priyanka.streamlit.app/
 
 ---
 
@@ -16,12 +18,12 @@ Hotels often face revenue loss due to:
 - Inefficient pricing strategies  
 - Lack of customer behavior insights  
 
-This project addresses these challenges using **data analytics and visualization**.
+This project solves these problems using **data-driven insights and predictive analytics**.
 
 ---
 
 ## 📊 Dashboard Features
-- KPI Cards: Total Bookings, Cancellations, Guests, ADR, Cancellation Rate  
+- KPI Cards: Total Bookings, Cancellations, ADR, Cancellation Rate  
 - Customer Type vs Cancellation  
 - Market Segment vs Cancellation  
 - Hotel Type vs Cancellation  
@@ -29,7 +31,16 @@ This project addresses these challenges using **data analytics and visualization
 - Monthly Cancellation Trends  
 - ADR Trend Analysis  
 - Lead Time vs Cancellation  
-- Price vs Cancellation Behavior  
+
+---
+
+## 🤖 Machine Learning Feature
+- Predicts **booking cancellation probability**
+- Classifies bookings into:
+  - 🔴 High Risk  
+  - 🟡 Medium Risk  
+  - 🟢 Low Risk  
+- Provides **business recommendations based on risk**
 
 ---
 
@@ -55,9 +66,11 @@ This project addresses these challenges using **data analytics and visualization
 ---
 
 ## 🛠 Tools & Technologies
-- **Power BI** → Dashboard & Visualization  
-- **Python (Pandas, NumPy)** → Data Cleaning  
-- **Matplotlib & Seaborn** → EDA  
+- **Python (Pandas, NumPy)** → Data Cleaning & Analysis  
+- **Streamlit** → Web App Deployment  
+- **Scikit-learn** → Machine Learning Model  
+- **Matplotlib & Seaborn** → Visualization  
+- **Power BI** → Dashboard  
 
 ---
 
@@ -68,22 +81,28 @@ This project addresses these challenges using **data analytics and visualization
 
 ## 📌 Project Workflow
 1. Data Cleaning & Preprocessing  
-2. Feature Engineering  
-3. Exploratory Data Analysis (EDA)  
-4. Data Visualization (Power BI)  
-5. Insights & Recommendations  
+2. Exploratory Data Analysis (EDA)  
+3. Feature Engineering  
+4. Dashboard Development  
+5. Machine Learning Model  
+6. Deployment using Streamlit  
 
 ---
 
 ## 🎯 Outcome
-This project demonstrates how analytics can help hospitality businesses:
+This project demonstrates how analytics and AI can help hospitality businesses:
 - Improve pricing strategies  
 - Reduce cancellations  
 - Increase revenue  
+- Enable data-driven decision-making  
+
+---
+
+## 👩‍💻 Developed By
+**Priyanka C Meti & Dharanendra**
 
 ---
 
 ## 🔗 Connect with Me
-- LinkedIn: www.linkedin.com/in/priyanka-meti26
-
----
+- LinkedIn: https://www.linkedin.com/in/priyanka-meti26
+- Email: priyankacm26@gmail.com
