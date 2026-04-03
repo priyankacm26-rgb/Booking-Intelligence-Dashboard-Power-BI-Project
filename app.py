@@ -57,6 +57,7 @@ st.sidebar.header("🔍 Filters")
 
 hotel = st.sidebar.selectbox("Hotel Type", df['hotel'].unique())
 df = df[df['hotel'] == hotel]
+
 # ================= DATA PREVIEW =================
 st.subheader("📊 Data Preview")
 st.dataframe(df.head())
