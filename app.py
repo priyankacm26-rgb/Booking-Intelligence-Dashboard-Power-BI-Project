@@ -33,6 +33,7 @@ h1 {
 
 # ================= LOAD MODEL =================
 model = pickle.load(open("model.pkl", "rb"))
+
 # ================= HEADER =================
 st.markdown("<h1>🏨 Booking Intelligence Dashboard</h1>", unsafe_allow_html=True)
 
@@ -42,19 +43,19 @@ st.markdown("""
 </p>
 """, unsafe_allow_html=True)
 
+st.success("🚀 Live AI Dashboard for Hotel Booking Analysis")
+
 # ================= FILE LOAD =================
 file = st.file_uploader("Upload dataset (optional)")
 
-if file:
-    df = pd.read_csv(file)
-else:
-    df = pd.read_csv("cleaned_hotel_booking.csv")
-
-# ✅ NOW df exists → safe to use
+with st.spinner("Loading data..."):
+    if file:
+        df = pd.read_csv(file)
+    else:
+        df = pd.read_csv("cleaned_hotel_booking.csv")
 
 # ================= SIDEBAR FILTER =================
 st.sidebar.header("🔍 Filters")
-
 hotel = st.sidebar.selectbox("Hotel Type", df['hotel'].unique())
 df = df[df['hotel'] == hotel]
 
@@ -80,25 +81,21 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Customer Type vs Cancellation")
-    data1 = df.groupby('customer_type')['is_canceled'].sum().sort_values()
-    st.bar_chart(data1)
+    st.bar_chart(df.groupby('customer_type')['is_canceled'].sum().sort_values())
 
 with col2:
     st.subheader("Market Segment vs Cancellation")
-    data2 = df.groupby('market_segment')['is_canceled'].sum().sort_values()
-    st.bar_chart(data2)
+    st.bar_chart(df.groupby('market_segment')['is_canceled'].sum().sort_values())
 
 col3, col4 = st.columns(2)
 
 with col3:
     st.subheader("Hotel Type vs Cancellation")
-    data3 = df.groupby('hotel')['is_canceled'].sum()
-    st.bar_chart(data3)
+    st.bar_chart(df.groupby('hotel')['is_canceled'].sum())
 
 with col4:
     st.subheader("ADR Trend by Month")
-    data4 = df.groupby('arrival_date_month')['adr'].mean()
-    st.line_chart(data4)
+    st.line_chart(df.groupby('arrival_date_month')['adr'].mean())
 
 col5, col6 = st.columns(2)
 
@@ -110,6 +107,16 @@ with col6:
     st.subheader("Monthly Cancellations")
     st.line_chart(df[df['is_canceled'] == 1]['arrival_date_month'].value_counts())
 
+# ================= DOWNLOAD BUTTON =================
+csv = df.to_csv(index=False).encode('utf-8')
+
+st.download_button(
+    "📥 Download Data",
+    csv,
+    "hotel_data.csv",
+    "text/csv"
+)
+
 # ================= INSIGHTS =================
 st.subheader("📌 Key Insights")
 st.info("📌 High lead time leads to higher cancellations")
@@ -118,6 +125,7 @@ st.info("📌 Online bookings show higher cancellation risk")
 
 # ================= ML PREDICTION =================
 st.subheader("🤖 AI Prediction")
+st.markdown("### 🎯 Enter Booking Details")
 
 col1, col2, col3 = st.columns(3)
 
@@ -142,7 +150,6 @@ if st.button("Predict"):
     prob = model.predict_proba(input_data)[0][1]
 
     st.subheader("📊 Prediction Result")
-
     st.info(f"Cancellation Probability: {round(prob*100,2)}%")
 
     if prob > 0.7:
