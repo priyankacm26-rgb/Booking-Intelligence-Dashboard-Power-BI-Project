@@ -43,13 +43,18 @@ st.markdown("""
 👩‍💻 Developed by <b>Priyanka C Meti</b> & <b>Dharanendra</b>
 </p>
 """, unsafe_allow_html=True)
-# ================= FILE UPLOAD =================
-file = st.file_uploader("Upload your dataset (optional)")
+
+# ================= FILE LOAD =================
+file = st.file_uploader("Upload dataset (optional)")
 
 if file:
     df = pd.read_csv(file)
 else:
-    df = pd.read_csv("cleaned_hotel_bookings.csv")  # default dataset
+    df = pd.read_csv("cleaned_hotel_bookingd.csv")  # your file name
+
+# Show preview
+st.subheader("📊 Data Preview")
+st.dataframe(df.head())
 
 # Show preview
 st.subheader("📊 Data Preview")
