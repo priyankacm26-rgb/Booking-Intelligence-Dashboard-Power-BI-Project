@@ -44,14 +44,16 @@ st.markdown("""
 </p>
 """, unsafe_allow_html=True)
 # ================= FILE UPLOAD =================
-file = st.file_uploader("Upload your dataset")
+file = st.file_uploader("Upload your dataset (optional)")
 
 if file:
     df = pd.read_csv(file)
+else:
+    df = pd.read_csv("hotel_bookings.csv")  # default dataset
 
-    st.subheader("📊 Data Preview")
-    st.dataframe(df.head())
-
+# Show preview
+st.subheader("📊 Data Preview")
+st.dataframe(df.head())
     # ================= SIDEBAR FILTER =================
     st.sidebar.header("🔍 Filters")
     hotel = st.sidebar.selectbox("Hotel Type", df['hotel'].unique())
