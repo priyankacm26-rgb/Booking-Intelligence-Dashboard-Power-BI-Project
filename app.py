@@ -22,8 +22,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================= LOAD MODEL =================
-model = pickle.load(open(r"C:\Users\priya\Downloads\Infotectproject1\model.pkl", "rb"))
-
+model = pickle.load(open("model.pkl", "rb"))
 # ================= HEADER =================
 st.markdown("<h1 style='text-align: center; color: #00BFFF;'>🏨 Booking Intelligence Dashboard</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>AI Powered Hotel Analytics System</p>", unsafe_allow_html=True)
