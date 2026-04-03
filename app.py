@@ -36,8 +36,13 @@ model = pickle.load(open("model.pkl", "rb"))
 
 # ================= HEADER =================
 st.markdown("<h1>🏨 Booking Intelligence Dashboard</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;'>AI Powered Hotel Analytics & Prediction System</p>", unsafe_allow_html=True)
 
+# ✅ ADD HERE (RIGHT AFTER TITLE)
+st.markdown("""
+<p style='text-align:center; color:gray;'>
+👩‍💻 Developed by <b>Priyanka C Meti</b> & <b>Dharanendra</b>
+</p>
+""", unsafe_allow_html=True)
 # ================= FILE UPLOAD =================
 file = st.file_uploader("Upload your dataset")
 
