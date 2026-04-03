@@ -32,7 +32,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 # ================= LOAD MODEL =================
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open(r"C:\Users\priya\Downloads\Infotectproject1\model.pkl", "rb"))
 
 # ================= HEADER =================
 st.markdown("<h1>🏨 Booking Intelligence Dashboard</h1>", unsafe_allow_html=True)
@@ -49,8 +49,7 @@ file = st.file_uploader("Upload dataset (optional)")
 if file:
     df = pd.read_csv(file)
 else:
-    df = pd.read_csv("cleaned_hotel_bookingd.csv")
-
+   df = pd.read_csv(r"C:\Users\priya\Downloads\Infotectproject1\cleaned_hotel_booking.csv")
 # ================= SIDEBAR FILTER =================
 st.sidebar.header("🔍 Filters")
 hotel = st.sidebar.selectbox("Hotel Type", df['hotel'].unique())
