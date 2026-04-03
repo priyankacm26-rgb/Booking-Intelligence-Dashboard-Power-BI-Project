@@ -48,12 +48,15 @@ file = st.file_uploader("Upload dataset (optional)")
 if file:
     df = pd.read_csv(file)
 else:
- pd.read_csv("cleaned_hotel_booking.csv")
+    df = pd.read_csv("cleaned_hotel_booking.csv")
+
+# ✅ NOW df exists → safe to use
+
 # ================= SIDEBAR FILTER =================
 st.sidebar.header("🔍 Filters")
+
 hotel = st.sidebar.selectbox("Hotel Type", df['hotel'].unique())
 df = df[df['hotel'] == hotel]
-
 # ================= DATA PREVIEW =================
 st.subheader("📊 Data Preview")
 st.dataframe(df.head())
