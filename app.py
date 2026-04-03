@@ -49,7 +49,7 @@ file = st.file_uploader("Upload your dataset (optional)")
 if file:
     df = pd.read_csv(file)
 else:
-    df = pd.read_csv("hotel_bookings.csv")  # default dataset
+    df = pd.read_csv("cleaned_hotel_bookings.csv")  # default dataset
 
 # Show preview
 st.subheader("📊 Data Preview")
